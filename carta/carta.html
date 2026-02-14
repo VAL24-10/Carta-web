@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Sábado Corazón</title>
+
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #e9b2ca, #d4eaf7, #ebc4f0);
+    background-size: 400% 400%;
+    animation: fondoAnimado 10s ease infinite;
+}
+
+@keyframes fondoAnimado{
+    0%{background-position: 0% 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0% 50%;}
+}
+
+.carta{
+    position:relative;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    width:80%;
+    max-width:600px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    z-index:10;
+}
+
+h1{
+    font-family: 'Playfair Display', serif;
+    font-size:48px;
+    color:#d13434;
+    margin-bottom:20px;
+    letter-spacing:1px;
+    animation: latido 4s infinite;
+}
+
+@keyframes latido{
+    0%{transform: scale(1);}
+    50%{transform: scale(1.05);}
+    100%{transform: scale(1);}
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+    font-size:22px;
+    color:#000000;
+    line-height:1.6;
+}
+
+/* CORAZONES */
+.corazon{
+    position:fixed;
+    top:-10px;
+    animation: caer linear forwards;
+    pointer-events:none;
+}
+
+@keyframes caer{
+    to{
+        transform: translateY(110vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="carta">
+    <h1> Hola mi amor </h1>
+    <p>
+        Hoy es un dia especial no solo por que celebramos San Valentin sino por que tambien que cumplimos 5 meses juntos.Cinco meses que han estado llenos de risas, aprendizajes y momentos bonitos que guardo en el corazon .<br>
+        Desde que llegaste a mi vida todo tiene un brillo diferente, me encanta la manera en la que me haces sentir, la tranquilidad que me das y como sin darme cuente te convertiste en alguien importante para mi<br>
+        Gracias por tu paciencia, por tu cariño y por estar a mi lado incluso en los momentos imperfectos, estos 5 meses son solo el comienzo de algo que quiero que continue, celebro lo que somos juntos y lo que nos falta por vivir <br>
+        <strong>Te Amo Muchisimooo y espero que este sea solo uno de los muchos San Valentin a tu lado</strong> 💕
+    </p>
+</div>
+
+<script>
+function crearCorazon(){
+    const corazon = document.createElement("div");
+    corazon.className = "corazon";
+    
+    const corazones = ["💖","💗","💘","💞","💕"];
+    corazon.innerHTML = corazones[Math.floor(Math.random() * corazones.length)];
+
+    corazon.style.left = Math.random() * 100 + "vw";
+    corazon.style.fontSize = (Math.random() * 20 + 20) + "px";
+    corazon.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    corazon.style.zIndex = "1";
+
+    document.body.appendChild(corazon);
+
+    setTimeout(() => {
+        corazon.remove();
+    }, 6000);
+}
+
+setInterval(crearCorazon, 250);
+</script>
+
+</body>
+</html>
